@@ -23,12 +23,12 @@ class Subject extends Authenticatable
     /**
      * Find the user instance for the given username.
      *
-     * @param  string  $username
+     * @param  string  $id
      * @return User
      */
-    public function findForPassport($username)
+    public function findForPassport($id)
     {
-        return $this->where('username', $username)->first();
+        return $this->where('id', $id)->first();
     }
 
     /**
