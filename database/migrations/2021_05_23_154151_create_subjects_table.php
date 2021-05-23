@@ -4,9 +4,9 @@ use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\User;
+use App\Models\Subject;
 
-class CreateUsersTable extends Migration
+class CreateSubjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,22 +15,19 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
+        Schema::create('subjects', function (Blueprint $table) {
+            $table->string('id')->primary();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
 
-        User::create(
+        Subject::create(
             [
-                'name' => 'Abhi GLaDOS',
-                'email' => 'abhi_glados@test.com',
-                'email_verified_at' => Carbon::now(),
-                'password' => 'password',
+                'id' => 'f1ba33b5-07bf-4d55-9ea4-ea20c4348c49',
+                'name' => '1',
+                'password' => 'ILoveCube11',
                 'created_at' => Carbon::now()
             ]
         );
@@ -43,6 +40,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('subjects');
     }
 }
