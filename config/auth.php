@@ -41,9 +41,15 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
+        'admin-api' => [
+            'driver' => 'passport',
             'provider' => 'users',
+            'hash' => false,
+        ],
+
+        'subject-api' => [
+            'driver' => 'session',
+            'provider' => 'subjects',
             'hash' => false,
         ],
     ],
@@ -69,6 +75,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'subjects' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Subject::class,
         ],
 
         // 'users' => [

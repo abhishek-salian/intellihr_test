@@ -21,16 +21,8 @@ class CreateSubjectsTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
-
-        Subject::create(
-            [
-                'id' => 'f1ba33b5-07bf-4d55-9ea4-ea20c4348c49',
-                'name' => '1',
-                'password' => 'ILoveCube11',
-                'created_at' => Carbon::now()
-            ]
-        );
     }
 
     /**

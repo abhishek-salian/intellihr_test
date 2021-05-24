@@ -14,10 +14,10 @@ class SubjectController extends Controller
      */
     public function index(Request $request)
     {
-        $users = Subject::withTrashed();
+        $subjects = Subject::withTrashed();
 
         return new SubjectCollection(
-            $users->paginate()
+            $subjects->paginate()
         );
     }
 

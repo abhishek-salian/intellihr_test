@@ -9,14 +9,14 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 
-class AuthController extends Controller
+class GladosAuthController extends Controller
 {
     /**
      * Performs authentication.
      */
-    public function login(Request $request)
+    public function adminLogin(Request $request)
     {
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+        if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
             $user = Auth::user();
             $token =  $user->createToken(Config::get('app.name'))->accessToken;
 
@@ -33,8 +33,8 @@ class AuthController extends Controller
         ))->response()->setStatusCode(Response::HTTP_UNAUTHORIZED);
     }
 
-    public function logout(Request $request) {
-        $user = auth()->guard('api')->user();
+    public function adminLogout(Request $request) {
+        $user = auth()->guard('admin-api')->user();
         if (!is_null($user)) {
             $user->token()->revoke();
         }

@@ -2,7 +2,11 @@
 
 namespace App\Exceptions;
 
+use App\Http\Resources\ErrorResource;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -37,5 +41,26 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function render($request, Throwable $exception)
+    {
+        if ($exception instanceof ModelNotFoundException && $request->wantsJson()) {
+            return (new ErrorResource(
+                Response::HTTP_BAD_REQUEST,
+                'Not Found',
+                'NOT_FOUND'
+            ))->response()->setStatusCode(Response::HTTP_NOT_FOUND);
+        }
+
+        if ($exception instanceof AuthorizationException && $request->wantsJson()) {
+            return (new ErrorResource(
+                Response::HTTP_FORBIDDEN,
+                'This action is unauthorized.',
+                'PERMISSION_DENIED'
+            ))->response()->setStatusCode(Response::HTTP_FORBIDDEN);
+        }
+
+        return parent::render($request, $exception);
     }
 }

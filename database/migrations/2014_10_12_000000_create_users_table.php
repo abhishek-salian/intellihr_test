@@ -18,19 +18,18 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('username')->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         User::create(
             [
-                'name' => 'Abhi GLaDOS',
-                'email' => 'abhi_glados@test.com',
-                'email_verified_at' => Carbon::now(),
-                'password' => 'password',
+                'name' => 'GLaDOS User',
+                'username' => 'GLaDOS',
+                'password' => 'ISawDeer',
                 'created_at' => Carbon::now()
             ]
         );

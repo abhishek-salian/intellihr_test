@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    public function setPasswordAttribute($password) {
+    public function setPasswordAttribute($password): void
+    {
         if (trim($password) === '') {
             return;
         }
@@ -26,7 +27,7 @@ class User extends Authenticatable
      * @param  string  $username
      * @return User
      */
-    public function findForPassport($username)
+    public function findForPassport($username): User
     {
         return $this->where('username', $username)->first();
     }
@@ -37,7 +38,7 @@ class User extends Authenticatable
      * @param  string  $password
      * @return bool
      */
-    public function validateForPassportPasswordGrant($password)
+    public function validateForPassportPasswordGrant($password): bool
     {
         return Hash::check($password, $this->password);
     }
@@ -49,7 +50,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'username',
         'password',
     ];
 
@@ -61,14 +62,5 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
     ];
 }

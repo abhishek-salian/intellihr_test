@@ -13,6 +13,9 @@ class Subject extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes;
 
+    // Primary key type is of string
+    protected $keyType = 'string';
+
     public function setPasswordAttribute($password) {
         if (trim($password) === '') {
             return;

@@ -25,7 +25,7 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'name'                  =>  'required|max:255',
-            'email'                 =>  'required|email:rfc,dns,spoof,strict|unique:users|max:255',
+            'username'                 =>  'required|unique:users|max:255',
             'password'              =>  'required|confirmed|min:6|max:255',
         ];
     }
@@ -40,9 +40,9 @@ class StoreUserRequest extends FormRequest
         return [
             'name.required'                 =>  'Name is required.',
             'name.max'                      =>  'Name can have max of 255 characters.',
-            'email.required'                =>  'An email is required.',
-            'email.unique'                  =>  'Email must be unique.',
-            'email.max'                     =>  'Email can have max of 255 characters.',
+            'username.required'                =>  'An username is required.',
+            'username.unique'                  =>  'Username must be unique.',
+            'username.max'                     =>  'Username can have max of 255 characters.',
             'password.required'             =>  'Password is required.',
             'password.max'                  =>  'Password can have max of 255 characters.',
         ];

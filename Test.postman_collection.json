@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "55b29d41-c016-4929-84a6-a43e899507e7",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Healthz",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "test.localhost/api/healthz",
+					"host": [
+						"test",
+						"localhost"
+					],
+					"path": [
+						"api",
+						"healthz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subject List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjAwNzFjNmZiZDg2NmEzZDk5OWVhODU5YTI2OWNlYzQ5YWQzN2Q5OWI3MDM3ZWViZjNjZDJlZTMzMjkxYmM5ODhkMzFiNDg0ZTYxNzNkMDMiLCJpYXQiOjE2MjE4NjA4MTguNzc1MzgzLCJuYmYiOjE2MjE4NjA4MTguNzc1Mzg2LCJleHAiOjE2NTMzOTY4MTguNzY4NTczLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.hfD2GPSk_2ZNHPg9PaT3VQamRc8F8lposnY9TIIIgnRU3vb0p5BWPQubzQ3c8Zrmko_kBCxNsIvtdnWLjQ3Q5KuQKTEIU-thWm0L0He7Iv4gk5kpSlvDFfiuUaJlZaaPdsSRw-CJmk1Nt3A9mU9nXP6J_DkVIeqSGfYRSo5sczmVwq6xG1NhBN5urdbs0p7i5k0rFBrADbaKJKnhc21KyU1YvW0oIRi664ACnGMXZPfqoBhMAOXsEOfoPJlVdjH6MAP8kwPsU2dCyxQnkTHGepd9gy40sEX_ud0OR_BZSWQDNn8Dc8NRKLBybvHmMSGN-NMk8BEgAj-XO85abmC1sNPkzdnQzfhdaoxHcdEpW85gzxofub7PU30UvorCuFXqEaCqCMc75BAkHEliVOPiBRykraXLeie7aIED4fuES1NUPpVO8qU5Um1JEjRFXVf3jOS-5DifBd7W-B2_8aviNNj-62DHb41JRTduuUM2f_qSnOD6eMKpjro43ZWKAE_US3ZBVpmjPjopSOoZTKtX01JZAmb8gyi-4dL5myfzUxKVTso2-s55ZOevuoHp8DTJAE5q5RJSEvG52mPNB2VCS644-ZDS9Xw2Z1rMtO8ghtXj575_HTv4dtkyNpE11uMzrCF2Drx4Z3yjWkn6y--H9BPOU6f_PmNTA180WAS09yk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "test.localhost/api/admin/subjects",
+					"host": [
+						"test",
+						"localhost"
+					],
+					"path": [
+						"api",
+						"admin",
+						"subjects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GLaDOS login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"GLaDOS\",\n    \"password\": \"ISawDeer\"\n}"
+				},
+				"url": {
+					"raw": "test.localhost/api/admin/login",
+					"host": [
+						"test",
+						"localhost"
+					],
+					"path": [
+						"api",
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subject login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"f1ba33b5-07bf-4d55-9ea4-ea20c4348c49\",\n    \"password\": \"ILoveCube11\"\n}"
+				},
+				"url": {
+					"raw": "test.localhost/api/subject/login",
+					"host": [
+						"test",
+						"localhost"
+					],
+					"path": [
+						"api",
+						"subject",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subject test submission",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\t\"Id\": 1,\n\t\t\t\"Date\": \"2021-01-01T00:00:00Z\",\n\t\t\t\"SubjectId\": \"175636a6-1e4a-4e8a-b72d-145e9f042bae\",\n\t\t\t\"Responses\": [\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 1,\n\t\t\t\t\t\"Value\": \"blue\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 2,\n\t\t\t\t\t\"Value\": \"yes\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 3,\n\t\t\t\t\t\"Value\": true\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 4,\n\t\t\t\t\t\"Value\": true\n\t\t\t\t}\n\t\t\t]\n\t\t}"
+				},
+				"url": {
+					"raw": "test.localhost/api/subject/test",
+					"host": [
+						"test",
+						"localhost"
+					],
+					"path": [
+						"api",
+						"subject",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subject test questions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\t\"Id\": 1,\n\t\t\t\"Date\": \"2021-01-01T00:00:00Z\",\n\t\t\t\"SubjectId\": \"175636a6-1e4a-4e8a-b72d-145e9f042bae\",\n\t\t\t\"Responses\": [\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 1,\n\t\t\t\t\t\"Value\": \"blue\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 2,\n\t\t\t\t\t\"Value\": \"yes\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 3,\n\t\t\t\t\t\"Value\": true\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 4,\n\t\t\t\t\t\"Value\": true\n\t\t\t\t}\n\t\t\t]\n\t\t}"
+				},
+				"url": {
+					"raw": "test.localhost/api/subject/test",
+					"host": [
+						"test",
+						"localhost"
+					],
+					"path": [
+						"api",
+						"subject",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
