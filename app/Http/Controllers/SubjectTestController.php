@@ -35,6 +35,7 @@ class SubjectTestController extends Controller
             'subject_id' => ['required']
         ]);
 
+        // This allows duplication, could have checked for test submission before saving
         foreach ($request->answers as $answer) {
             SubjectTest::create([
                 'question_id' => $answer['question_id'],

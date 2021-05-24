@@ -190,7 +190,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\t\t\"Id\": 1,\n\t\t\t\"Date\": \"2021-01-01T00:00:00Z\",\n\t\t\t\"SubjectId\": \"175636a6-1e4a-4e8a-b72d-145e9f042bae\",\n\t\t\t\"Responses\": [\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 1,\n\t\t\t\t\t\"Value\": \"blue\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 2,\n\t\t\t\t\t\"Value\": \"yes\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 3,\n\t\t\t\t\t\"Value\": true\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"Id\": 4,\n\t\t\t\t\t\"Value\": true\n\t\t\t\t}\n\t\t\t]\n\t\t}"
+					"raw": "{\n    \"subject_id\": \"f1ba33b5-07bf-4d55-9ea4-ea20c4348c49\",\n    \"answers\": [\n        {\n            \"question_id\": 1,\n            \"answer\": \"blue\"\n        },\n        {\n            \"question_id\": 2,\n            \"answer\": \"yes\"\n        },\n        {\n            \"question_id\": 3,\n            \"answer\": true\n        },\n        {\n            \"question_id\": 4,\n            \"answer\": true\n        }\n    ]\n}"
 				},
 				"url": {
 					"raw": "test.localhost/api/subject/test",
