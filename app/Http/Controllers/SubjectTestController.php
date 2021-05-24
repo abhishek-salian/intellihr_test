@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreSubjectTestRequest;
 use App\Http\Resources\SubjectCollection;
 use App\Http\Resources\SubjectResource;
 use App\Http\Resources\SubjectTestResource;
 use App\Models\Subject;
+use App\Models\SubjectTest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class SubjectTestController extends Controller
 {
@@ -24,8 +26,21 @@ class SubjectTestController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSubjectTestRequest $request)
+    public function store(Request $request)
     {
-        // to store subject test answers
+        Validator::make($request->all(), [
+            'answer.*' => Rule::requiredIf(function () use ($request) {
+                return $request->question_id === 4;
+            }),
+            'subject_id' => ['required']
+        ]);
+
+        foreach ($request->answers as $answer) {
+            SubjectTest::create([
+                'question_id' => $answer['question_id'],
+                'answer' => $answer['answer'],
+                'subject_id' => $request->subject_id
+            ]);
+        }
     }
 }

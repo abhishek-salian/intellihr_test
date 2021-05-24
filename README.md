@@ -6,6 +6,7 @@ Test using Laravel
 
 Once the application is up and running run below commands
 ```php
+php artisan migrate:refresh
 php artisan passport:install --uuids
 php artisan db:seed
 ```
